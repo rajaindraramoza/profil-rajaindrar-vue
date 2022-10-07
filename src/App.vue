@@ -1,18 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <h1>Biodata Diri</h1>
+  <p>Nama: {{ nama }}</p>
+  <p>Tempat, Tanggal Lahir : {{ ttl }}</p>
+  <p>Alamat : {{ alamat }}</p>
+  <p>Jenis Kelamin: {{ jk }}</p>
+  <p>Status : {{ status }}</p>
+  <p>Pekerjaan : {{ pekerjaan }}</p>
+  <p>Agama : {{ agama }}</p>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+  export default {
+    name: "App",
+    data() {
+      return {
+        nama: "Raja Indra Ramoza",
+        ttl : "Pekanbaru, 18 Juni 2001",
+        alamat: "Jl. Manyar Sakti, Tampan, Pekanbaru",
+        jk :"Laki-laki",
+        status:"Belum Menikah",
+        pekerjaan : "Mahasiswa",
+        agama :"Islam"
+      };
+    },
+  };
+  </script>
 
 <style>
 #app {
@@ -20,7 +31,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #1c2c7c;
   margin-top: 60px;
 }
 </style>
