@@ -1,37 +1,59 @@
-<template>
-  <h1>Biodata Diri</h1>
-  <p>Nama: {{ nama }}</p>
-  <p>Tempat, Tanggal Lahir : {{ ttl }}</p>
-  <p>Alamat : {{ alamat }}</p>
-  <p>Jenis Kelamin: {{ jk }}</p>
-  <p>Status : {{ status }}</p>
-  <p>Pekerjaan : {{ pekerjaan }}</p>
-  <p>Agama : {{ agama }}</p>
-</template>
 <script>
-  export default {
-    name: "App",
-    data() {
-      return {
-        nama: "Raja Indra Ramoza",
-        ttl : "Pekanbaru, 18 Juni 2001",
-        alamat: "Jl. Manyar Sakti, Tampan, Pekanbaru",
-        jk :"Laki-laki",
-        status:"Belum Menikah",
-        pekerjaan : "Mahasiswa",
-        agama :"Islam"
-      };
-    },
-  };
-  </script>
+      export default{
+
+        data(){
+        return{
+          dataMahasiswa:[],
+          nama: "",
+          nim: ""
+        }
+      },
+        methods:{
+          simpanData(){
+            var mahasiswa={
+              nama:this.nama,
+              nim: this.nim
+            }
+            this.dataMahasiswa.push(mahasiswa);
+        }
+      }
+      }
+</script>
+
+<template>
+<div class="container">
+  <form>
+    <p class="alert alert-danger">Hello VueJs</p>
+    <p>Nama</p>
+    <input v-model="nama" type="text" class="form-text">
+    <p>Nim</p>
+    <input type="text" class="form-text">
+    <div class="mt-2">
+    <button class="btn btn-info" type="submit" @click.prevent="simpanData">Simpan</button>
+    </div>
+  </form>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nama</th>
+      <th>Nim</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr :key="item.nama"  v-for="item in dataMahasiswa">
+      <td>{{ item.nama }}</td>
+      <td>{{ item.nim }}</td>
+    </tr>
+  </tbody>
+
+</table>
+
+
+</template>
+
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #1c2c7c;
-  margin-top: 60px;
-}
+
 </style>
